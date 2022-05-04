@@ -7,8 +7,14 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-app.use((req, res, next) => {
+app.use("/add-products", (req, res, next) => {
   console.log("In Middleware");
+  res.send("<h2>The 'Add Product' page</h2>");
+});
+
+app.use("/", (req, res, next) => {
+  console.log("In Middleware");
+  res.send("<h2>Hello from Express</h2>");
   next();
 });
 
